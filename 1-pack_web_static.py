@@ -8,6 +8,9 @@ import os
 
 
 def do_pack():
+    """
+    Fabric script that generates a .tgz archive
+    """
     local("mkdir -p versions")
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     file_path = f'versions/web_static_{date}.tgz'
