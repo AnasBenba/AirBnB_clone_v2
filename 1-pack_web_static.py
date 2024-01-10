@@ -12,9 +12,9 @@ def do_pack():
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     file_path = f'versions/web_static_{date}.tgz'
     print(f'Packing web_static to {file_path}')
-    size = os.path.getsize(file_path)
     try:
         local(f"tar -czvf {file_path} web_static")
+        size = os.path.getsize(file_path)
         print(f'web_static packed: {file_path} -> {size}Bytes')
         return file_path
     except Exception:
