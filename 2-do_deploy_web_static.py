@@ -21,7 +21,7 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
         run(f"mkdir -p /data/web_static/releases/{no_ext}/")
         run(f"tar -xzvf /tmp/{file_name} -C " +
-            "/data/web_static/releases/{no_ext}/")
+            f"/data/web_static/releases/{no_ext}/")
         run(f"rm -rf /tmp/{file_name}")
         run(f"mv /data/web_static/releases/{no_ext}/web_static/* " +
             f"/data/web_static/releases/{no_ext}/")
