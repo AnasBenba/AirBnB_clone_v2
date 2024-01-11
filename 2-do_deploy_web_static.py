@@ -23,7 +23,6 @@ def do_deploy(archive_path):
         run(f"tar -xzvf /tmp/{file_name} -C " +
             f"/data/web_static/releases/{no_ext}/")
         run(f"rm -rf /tmp/{file_name}")
-        run(f"rm -rf /data/web_static/releases/{no_ext}/web_static")
         run("rm -rf /data/web_static/current")
         run(f"sudo ln -s /data/web_static/releases/{no_ext}/ " +
             "/data/web_static/current")
