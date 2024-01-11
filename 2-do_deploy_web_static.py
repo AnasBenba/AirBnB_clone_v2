@@ -27,7 +27,6 @@ def do_deploy(archive_path):
              "/data/web_static/releases/{}/").format(no_ext, no_ext))
         run("rm -rf /data/web_static/releases/{}/web_static/"
             .format(no_ext))
-        run("rm -rf /data/web_static/releases/{}/web_static".format(no_ext))
         run("rm -rf /data/web_static/current")
         run("sudo ln -s /data/web_static/releases/{}/ ".format(no_ext) +
             "/data/web_static/current")
