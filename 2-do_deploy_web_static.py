@@ -18,17 +18,17 @@ def do_deploy(archive_path):
     try:
         file_name = os.path.basename(archive_path)
         no_ext = os.path.splitext(file_name)[0]
-        put(archive_path, '/tmp/')
-        run("mkdir -p /data/web_static/releases/{}/".format(no_ext))
-        run("tar -xzf /tmp/{} -C /data/web_static/releases/{}/"
+        archive_path.put(archive_path, '/tmp/')
+        archive_path.run("mkdir -p /data/web_static/releases/{}/".format(no_ext))
+        archive_path.run("tar -xzf /tmp/{} -C /data/web_static/releases/{}/"
             .format(file_name, no_ext))
-        run("rm -rf /tmp/{}".format(file_name))
-        run(("mv /data/web_static/releases/{}/web_static/* " +
+        archive_path.run("rm -rf /tmp/{}".format(file_name))
+        archive_path.run(("mv /data/web_static/releases/{}/web_static/* " +
              "/data/web_static/releases/{}/").format(no_ext, no_ext))
-        run("rm -rf /data/web_static/releases/{}/web_static/"
+        archive_path.run("rm -rf /data/web_static/releases/{}/web_static/"
             .format(no_ext))
-        run("rm -rf /data/web_static/current")
-        run("sudo ln -s /data/web_static/releases/{}/ ".format(no_ext) +
+        archive_path.run("rm -rf /data/web_static/current")
+        archive_path.run("sudo ln -s /data/web_static/releases/{}/ ".format(no_ext) +
             "/data/web_static/current")
         return True
     except Exception:
